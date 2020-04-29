@@ -1,0 +1,41 @@
+﻿@model IEnumerable<AutoSpaApi.Models.Categoria>
+
+@{
+    ViewData["Title"] = "Categorias";
+}
+
+<h1>Categorías</h1>
+
+<p>
+    <a asp-action="Create">Alta de Categoría</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nombreCategoria)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.Productosid)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombreCategoria)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Productosid)
+            </td>*@
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.id">Editar</a> |
+                <a asp-action="Details" asp-route-id="@item.id">Detalles</a> |
+                <a asp-action="Delete" asp-route-id="@item.id">Borrar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
